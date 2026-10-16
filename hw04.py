@@ -5,25 +5,30 @@
 # ------------------------------------------------------
 import sys
 
-secret_word = "Dog" or "dog"
+
+secret_word = "dog"  # Global variable assigned at top of hw04.py
 
 # Task 1
 def check_text():
-    """ Add your docstring """
+    """Prompts for a sentence until secret_word or 'dog'/'Dog' is used."""
+    global secret_word
     while True:
         sentence = input("Give me a sentence: ")
-        if "dog" in sentence or "Dog" in sentence:
+        
+        if secret_word in sentence:
+            print("You used the secret word!")
+            break
+        elif "dog" in sentence or "Dog" in sentence:
             print('You used the word "dog" or the word "Dog"!')
             break
         else:
             print("Try again")
 
 
-
-
 # Task 2
+#ask for 2 integers and tell us which is larger
 def check_greater():
-    """ Add your docstring """
+    """Prompts for two integers until one is greater than the other."""
     while True:
         first = int(input("Give me a first integer: "))
         second = int(input("Give me a second integer: "))
@@ -42,8 +47,9 @@ def check_greater():
 
 
 # Task 3
+#find all number between 1 and 40 that meet our conditions
 def get_special_numbers():
-    """ Add your docstring """
+    """Prints numbers between 1 and 40 that are odd, multiples of 3, and not multiples of 5."""
     for num in range(1,41):
         if num % 2 != 0 and num % 3 == 0 and num % 5 != 0:
             print(num)
@@ -52,10 +58,12 @@ def get_special_numbers():
 
 
 # Task 4.a
+#Ask for a string and let us know which letters are vowels or consonants
 def my_for_loop():
-    """ Add your docstring """
+    """Validates string length/spaces and prints vowel/consonant status for each character."""
     str = input("Give me a string: ")
     if len(str) < 2 or len(str) > 5 or " " in str:
+        print("bad word")
         return
 
     vowels = "aeiouAEIOU"
@@ -67,8 +75,9 @@ def my_for_loop():
             print(f"{char} is a consonant")
 
 # Task 4.b
+#give 3 options each with a different output
 def my_while_loop():
-    """ Add your docstring """
+    """Offers options 'a', 'b', or 'c' to the user until 'b' returns or 'c' exits."""
     while True:
         select = input("Choose one option: a, b, or c: ")
         if select == "a":
